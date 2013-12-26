@@ -9,14 +9,14 @@
  */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        define(factory);
+        define(factory.apply(this));
     } else {
-        root.WebStorage = factory();
+        root.WebStorage = factory.apply(this);
     }
 }(this, function () {
     'use strict';
     
-    var global = window,
+    var global = this,
         webStorage = {},
         signatures = {},
         transport,
